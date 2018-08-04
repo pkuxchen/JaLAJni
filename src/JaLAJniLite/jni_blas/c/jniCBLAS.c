@@ -9,7 +9,6 @@
 
 #include <jni.h>
 #include <assert.h>
-//  #include <jniCBLAS.h>
 
 /* Calling fortran blas from libblas */
 
