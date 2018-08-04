@@ -20,12 +20,9 @@ DYLIB_BLAS = $(JAVA_HOME)/lib/libblas_lite.dylib
 
 # For package JaLAJniLite
 JC = javac
-# JH = javah
 JFLAGS = -d
 JAVA_SRC = $(JNI_LAPACK_SRC)/java/jniLAPACK.java $(JNI_BLAS_SRC)/java/jniCBLAS.java
 PACKAGE = $(JAVA_HOME)/class/JaLAJniLite
-# HEADER_LAPACK = $(JNI_LAPACK_SRC)/c/include/jniLAPACK.h
-# HEADER_BLAS = $(JNI_BLAS_SRC)/c/include/jniCBLAS.h
 
 
 all: $(PACKAGE) $(HEADER_LAPACK) $(HEADER_BLAS) $(DYLIB_LAPACK) $(DYLIB_BLAS)
@@ -35,13 +32,6 @@ $(PACKAGE): $(JAVA_SRC)
 	$(JC) $(JFLAGS) $(JAVA_HOME)/class $(JAVA_SRC)
 
 
-# $(HEADER_LAPACK): 
-# 	@mkdir -p $(@D)
-# 	$(JH) -o $(HEADER_LAPACK) -classpath $(JAVA_HOME)/class JaLAJniLite.jni_lapack.jniLAPACK 
-
-# $(HEADER_BLAS):
-# 	@mkdir -p $(@D)
-# 	$(JH) -o $(HEADER_BLAS) -classpath $(JAVA_HOME)/class JaLAJniLite.jni_blas.jniCBLAS
 
 $(DYLIB_LAPACK): $(C_SRC_LAPACK)
 	@mkdir -p $(@D)
