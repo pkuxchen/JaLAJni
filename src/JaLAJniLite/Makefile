@@ -25,7 +25,7 @@ JAVA_SRC = $(JNI_LAPACK_SRC)/java/jniLAPACK.java $(JNI_BLAS_SRC)/java/jniCBLAS.j
 PACKAGE = $(JAVA_HOME)/class/JaLAJniLite
 
 
-all: $(PACKAGE) $(HEADER_LAPACK) $(HEADER_BLAS) $(DYLIB_LAPACK) $(DYLIB_BLAS)
+all: $(PACKAGE) $(DYLIB_LAPACK) $(DYLIB_BLAS)
 
 $(PACKAGE): $(JAVA_SRC)
 	@mkdir -p $(@D)
@@ -43,9 +43,7 @@ $(DYLIB_BLAS): $(C_SRC_BLAS)
 
 clean: 
 	rm -fr $(JAVA_HOME)/class/JaLAJniLite
-	rm -f $(JNI_LAPACK_SRC)/c/include/jniLAPACK.h
 	rm -f $(JAVA_HOME)/lib/libblas_lite.dylib
 	rm -f $(JAVA_HOME)/lib/liblapack_lite.dylib
-	rm -f $(JNI_BLAS_SRC)/c/include/jniCBLAS.h
 	rm -f $(JAVA_HOME)/test/JaLAJniLite_tests/*.class
 	rm -f $(JAVA_HOME)/test/JaLAJniLite_tests/*.txt
