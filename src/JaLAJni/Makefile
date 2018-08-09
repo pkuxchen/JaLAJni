@@ -25,7 +25,7 @@ PACKAGE = $(JAVA_HOME)/class/JaLAJni
 # header file jniLAPACKE.h
 
 
-all: $(PACKAGE) $(HEADER_LAPACK) $(HEADER_BLAS) $(DYLIB_LAPACK) $(DYLIB_BLAS)
+all: $(PACKAGE) $(DYLIB_LAPACK) $(DYLIB_BLAS)
 
 $(PACKAGE): $(JAVA_SRC_LAPACK) $(JAVA_SRC_BLAS)
 	@mkdir -p $(@D)
@@ -41,7 +41,6 @@ $(DYLIB_BLAS): $(C_SRC_BLAS)
 
 clean: 
 	rm -fr $(JAVA_HOME)/class/JaLAJni
-	rm -f $(JNI_SRC)/c/include/*.h
 	rm -f $(JAVA_HOME)/lib/libjni_java_lapacke.dylib
 	rm -f $(JAVA_HOME)/lib/libjni_cblas.dylib
 	rm -f $(JAVA_HOME)/test/JaLAJni_tests/*.class
