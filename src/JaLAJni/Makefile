@@ -33,11 +33,11 @@ $(PACKAGE): $(JAVA_SRC_LAPACK) $(JAVA_SRC_BLAS)
 
 $(DYLIB_LAPACK): $(C_SRC_LAPACK)
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -shared -fPIC $(C_SRC_LAPACK) -llapacke -llapack -lblas -o $(DYLIB_LAPACK)
+	$(CC) $(CFLAGS) -shared -fPIC $(C_SRC_LAPACK) -llapacke -lcblas -o $(DYLIB_LAPACK)
 
 $(DYLIB_BLAS): $(C_SRC_BLAS) 
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -shared -fPIC $(C_SRC_BLAS) -llapack -lblas -lcblas -o $(DYLIB_BLAS)
+	$(CC) $(CFLAGS) -shared -fPIC $(C_SRC_BLAS) -llapacke -lcblas -o $(DYLIB_BLAS)
 
 clean: 
 	rm -fr $(JAVA_HOME)/class/JaLAJni
