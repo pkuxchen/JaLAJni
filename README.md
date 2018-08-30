@@ -7,7 +7,7 @@ Build Instructions
 ------------------
 #### JaLAJni
 
-* JaLAJni requires the installation of lapacke and cblas. (The command in Ubuntu is "sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev liblapacke-dev")
+* JaLAJni requires the installation of lapacke and cblas. (The command in Ubuntu is "sudo apt-get install libatlas-base-dev liblapacke-dev")
 
 * To compile the package, go to the folder src/JaLAJni, find the Makefile and run "make" on the command line. Notice that you may have to change the extension of generated libraries in the Makefile base on your operating system. On OS X you have to change all the extensions of dynamic library to .dylib while on Linux the corresponding extensions are .so or .a. 
 
